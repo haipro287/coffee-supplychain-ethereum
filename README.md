@@ -55,11 +55,12 @@ The coffee supply chain is the sequence of activities and process  to bring raw 
 -  Truffle
 -  IPFS
 -  Web3JS
--  Apache and PHP
+-  PHP
 
 #### Prerequisites
 ---
 - Nodejs v9.10 or above
+- Ganache-cli
 - Truffle v4.1.8 (core: 4.1.8) (http://truffleframework.com/docs/getting_started/installation)
 - Solidity v0.4.23
 - Metamask (https://metamask.io) /Ganache Wallet
@@ -100,13 +101,23 @@ module.exports =
 };
 ```
 
-Go to your project folder in terminal then execute :
-
+Go to your project folder in terminal then execute (if dont have enough prequisites) :
+```
+npm install -g solc
+npm install -g truffle@4.1.8
+npm install -g ganache-cli
+```
+Run ganache-cli test net
+```
+ganache-cli
+```
+Open another terminal
 ```
 rm -rf build/
-truffle compile 
+npm install
 npm install truffle-hdwallet-provider
-truffle migrate --network rinkeby reset
+truffle compile 
+truffle migrate --network test reset
 ```
 **Please note:**
 1. After successfully deployment you will get response in bash terminal like below
@@ -145,27 +156,32 @@ like below
 		'Storage': "0xe544a8f280e4cb111589f935c483cafb1c6044d0"
 	};
 ```
+- Edit globalAdminAddress in [coffee-supplychain-ui/js/app/app.js] with address of account deploy the contract (usually the first account)
 ---
 **Setting up UI:**
 
-- Navigate to Apache Document Root in terminal
+- Navigate to coffee-supplychain-ui
+- Run php server in terminal
 ```
-git clone https://github.com/rwaltzsoftware-org/coffee-supplychain-ui
-cd coffee-supplychain-ui/
+php -S localhost:[port]
 ```
-**For Our Online User Panel Demo:**
+**For User Demo:**
 
-- Open http://coffee-supplychain.rwaltzsoftware.com/user.php
+- Open http://localhost:[port]/user.php
 
-**For Our Online Admin Panel Demo:**
+**For Admin Demo:**
 
-- Open http://coffee-supplychain.rwaltzsoftware.com/admin.php
+- Open http://localhost:[port]/admin.php
 
 **Please note:**
 
 Admin Panel can be only accessed address that deployed the contracts
 
+**Setting up Metamask:**
 
+- install metamask extension on browser
+- sign up account
+- import account from ganache-cli
 
 #### Development Screen's
 ---
