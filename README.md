@@ -119,7 +119,7 @@ rm -rf build/
 npm install
 npm install truffle-hdwallet-provider
 truffle compile 
-truffle migrate --network test reset
+truffle migrate --network development reset
 ```
 **Please note:**
 1. After successfully deployment you will get response in bash terminal like below
