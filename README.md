@@ -59,6 +59,8 @@ The coffee supply chain is the sequence of activities and process  to bring raw 
 
 #### Prerequisites
 ---
+
+- Recommend running on Linux environment (or WSL2 on Windows)
 - Nodejs v9.10 or above
 - Ganache-cli
 - Truffle v4.1.8 (core: 4.1.8) (http://truffleframework.com/docs/getting_started/installation)
